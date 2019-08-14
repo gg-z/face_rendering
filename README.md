@@ -43,7 +43,7 @@ cmake -A X64 -D CMAKE_PREFIX_PATH=/root/to/thirds ../src
 
 ### Some demo 
 
-![alt text](https://github.com/gg-z/face_rendering/imgs/screen_shot1.png "demo 0")
+![demo 0](https://github.com/gg-z/face_rendering/blob/master/imgs/screen_shot1.png)
 
 
-![alt text](https://github.com/gg-z/face_rendering/imgs/screen_shot2.png "demo 1")
+![demo 1](https://github.com/gg-z/face_rendering/blob/master/imgs/screen_shot1.png)
