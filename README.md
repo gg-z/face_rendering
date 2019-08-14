@@ -1,5 +1,5 @@
 ### Project description
-This project face render of ICCV Oral paper Photo-Realistic Facial Details Synthesis from Single Image[1](https://arxiv.org/abs/1903.10873)
+This project face render of ICCV Oral paper Photo-Realistic Facial Details Synthesis from Single Image [[1]](https://arxiv.org/abs/1903.10873)
 
 ### Dependency library
 all dependent libs are included in folder **thirds**
