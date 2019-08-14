@@ -41,9 +41,9 @@ cmake -A X64 -D CMAKE_PREFIX_PATH=/root/to/thirds ../src
 ./hmrenderer.exe  /root/to/obj /root/to/norm /root/to/shader
 ```
 
-### Some demo 
+### Some screenshots 
 
-![demo 0](https://github.com/gg-z/face_rendering/blob/master/imgs/screen_shot1.png)
-
-
-![demo 1](https://github.com/gg-z/face_rendering/blob/master/imgs/screen_shot1.png)
+<div align="left">
+<img src="https://github.com/gg-z/face_rendering/blob/master/imgs/screen_shot1.png" width = "400" height = "400" alt="demo_0" align=center />
+<img src="https://github.com/gg-z/face_rendering/blob/master/imgs/screen_shot1.png" width = "400" height = "400" alt="demo_1" align=center /> 
+</div>
