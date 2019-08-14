@@ -44,6 +44,6 @@ cmake -A X64 -D CMAKE_PREFIX_PATH=/root/to/thirds ../src
 ### Some screenshots 
 
 <div align="left">
-<img src="https://github.com/gg-z/face_rendering/blob/master/imgs/screen_shot1.png" width = "430" height = "430" alt="demo_0" align=center />
+<img src="https://github.com/gg-z/face_rendering/blob/master/imgs/screen_shot0.png" width = "430" height = "430" alt="demo_0" align=center />
 <img src="https://github.com/gg-z/face_rendering/blob/master/imgs/screen_shot1.png" width = "430" height = "430" alt="demo_1" align=center /> 
 </div>
