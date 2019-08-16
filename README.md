@@ -1,5 +1,3 @@
-### Project description
-This project is the face render of **ICCV 2019 Oral paper:** __Photo-Realistic Facial Details Synthesis from Single Image__ [[1]](https://arxiv.org/abs/1903.10873)
 
 ### Dependency library
 all dependent libs are included in folder **thirds**
@@ -43,10 +41,3 @@ cmake -A X64 -D CMAKE_PREFIX_PATH=/root/to/thirds ../src
 eg: (unzip ./exe/face_rendering.rar file to get the executable file.)
 ./hmrenderer.exe ../assets/face.obj ../assets/nrm.png ../src/shaders/
 ```
-
-### Some screenshots 
-
-<div align="left">
-<img src="https://github.com/gg-z/face_rendering/blob/master/imgs/screen_shot0.png" width = "430" height = "430" alt="demo_0" align=center />
-<img src="https://github.com/gg-z/face_rendering/blob/master/imgs/screen_shot1.png" width = "430" height = "430" alt="demo_1" align=center /> 
-</div>
