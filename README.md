@@ -21,7 +21,7 @@ all dependent libs are included in folder **thirds**
 │ 
 ├──  exe                            - windows executable file
 │ 
-├──  imgs                            - screens about this software 
+├──  imgs                           - screenshots of this software 
 │ 
 ├──  README.md  
 │ 
