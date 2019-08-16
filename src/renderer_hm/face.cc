@@ -57,7 +57,7 @@ void LoadRes(World* world, std::string obj_path, std::string nrm_path ) {
 
 	world->lights = std::make_unique<std::vector<DirLightDesc>>(1);
 	for (size_t i = 0; i < world->lights.get()->size(); i++) {
-		world->lights->at(i).dir = glm::vec3(1, -1, 0);
+		world->lights->at(i).dir = glm::vec3(1, 1, 0.4);
 		world->lights->at(i).color = glm::vec3(1.0f);
 		world->lights->at(i).shadow_w = kWindowWidth*4;
 		world->lights->at(i).shadow_h = kWindowHeight*4;

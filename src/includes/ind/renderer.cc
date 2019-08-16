@@ -17,21 +17,20 @@ Renderer::Renderer(
 	s_beta = 0.18;
 	albedo = 0.7;
 
-
 	lht_color[0] = 0.9;
 	lht_color[1] = 0.9;
 	lht_color[2] = 0.9;
-	obj_color[0] = 0.9;
-	obj_color[1] = 0.9;
-	obj_color[2] = 0.9;
-	amb_color[0] = 0.2;
-	amb_color[1] = 0.2;
-	amb_color[2] = 0.2;
-	spec_color[0] = 0.5;
-	spec_color[1] = 0.5;
-	spec_color[2] = 0.5;
+	obj_color[0] = 0.7;
+	obj_color[1] = 0.7;
+	obj_color[2] = 0.7;
+	amb_color[0] = 0.34;
+	amb_color[1] = 0.34;
+	amb_color[2] = 0.34;
+	spec_color[0] = 0.24;
+	spec_color[1] = 0.24;
+	spec_color[2] = 0.24;
 
-	Kd = 0.8f;
+	Kd = 0.85f;
 }
 
 

@@ -7,6 +7,53 @@
 #define TINYOBJLOADER_IMPLEMENTATION
 #include "tiny_obj_loader.h"
 
+void GenNormal(tinyobj::attrib_t &shape, tinyobj::mesh_t &mesh, float angle) {
+
+	const float pi = 3.14159;
+	/* calculate the cosine of the angle (in degrees) */
+	float cos_angle = cos(angle * pi / 180.0);
+
+
+	/* allocate space for new normals */
+	shape.normals.resize(shape.vertices.size());
+	for (size_t i = 0; i < shape.vertices.size(); i++)
+		shape.normals[i] = 0;
+
+	std::vector<int> count(shape.vertices.size()/3,0);
+	glm::vec3 u, v, n;
+	for (size_t i = 0; i < mesh.indices.size(); i += 3) {
+
+		unsigned int indexX = 3 * mesh.indices[i].vertex_index;
+		unsigned int indexY = 3 * mesh.indices[i+1].vertex_index;
+		unsigned int indexZ = 3 * mesh.indices[i+2].vertex_index;
+
+		mesh.indices[i].normal_index = mesh.indices[i].vertex_index;
+		mesh.indices[i+1].normal_index = mesh.indices[i+1].vertex_index;
+		mesh.indices[i+2].normal_index = mesh.indices[i+2].vertex_index;
+
+		u[0] = shape.vertices[indexY + 0] -
+			shape.vertices[indexX + 0];
+		u[1] = shape.vertices[indexY + 1] -
+			shape.vertices[indexX + 1];
+		u[2] = shape.vertices[indexY + 2] -
+			shape.vertices[indexX + 2];
+
+		v[0] = shape.vertices[indexZ + 0] -
+			shape.vertices[indexX + 0];
+		v[1] = shape.vertices[indexZ + 1] -
+			shape.vertices[indexX + 1];
+		v[2] = shape.vertices[indexZ + 2] -
+			shape.vertices[indexX + 2];
+
+		n = glm::cross(u, v); n = glm::normalize(n); count[int(indexX / 3)] += 1;
+		shape.normals[indexX] += n.x; shape.normals[indexX + 1] += n.y; shape.normals[indexX + 2] += n.z;
+		shape.normals[indexY] += n.x; shape.normals[indexY + 1] += n.y; shape.normals[indexY + 2] += n.z;
+		shape.normals[indexZ] += n.x; shape.normals[indexZ + 1] += n.y; shape.normals[indexZ + 2] += n.z;
+	}
+
+	for (size_t i = 0; i < shape.vertices.size(); i++)
+		shape.normals[i] /= count[int(i / 3)];
+}
 
 void ReadObjFile(
 	std::string objpath,
@@ -34,13 +81,16 @@ void ReadObjFile(
 
 	IND_ASSERT(is_success, "");
 	IND_ASSERT(shapes.size() == 1, "Only one shape at a time.");
-
+	
 	auto &mesh = shapes.front().mesh;
 	auto num_verts = mesh.num_face_vertices.size() * 3;
 	poly->ps.clear(); poly->ps.reserve(num_verts);
 	poly->ns.clear(); poly->ns.reserve(num_verts);
 	poly->ts.clear(); poly->ts.reserve(num_verts / 3 * 2);
 	poly->tgts.clear(); poly->tgts.reserve(num_verts);
+
+	if (attrib.normals.size() == 0)
+		GenNormal(attrib, mesh, 90);
 
 
 	for (std::size_t kthvert = 0; kthvert < size_t(num_verts/3); ++kthvert) {
