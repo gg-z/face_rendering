@@ -33,14 +33,12 @@ void LoadRes(World* world, std::string obj_path, std::string nrm_path ) {
 
 	// load quad aligned to screen
 	world->quad = std::make_unique<QuadDesc>();
-	//ReadObjFile(std::string(kAssetDir_) + "/1/agi/quad.obj", &world->quad->mesh);
 	world->quad.get()->mesh.txtr_path = "";
 	PrepGLDataNTgt(&world->quad.get()->mesh);
 	PrepGLQuad(world->quad.get());
 
 	// load quad_irradiance to render irridance texture
 	world->quad_irrid = std::make_unique<QuadDesc>();
-	//ReadObjFile(std::string(kAssetDir_) + "/1/agi/quad.obj", &world->quad_irrid->mesh);
 	world->quad_irrid.get()->mesh.txtr_path = "";
 	PrepGLDataNTgt(&world->quad_irrid.get()->mesh);
 	PrepGLQuad(world->quad_irrid.get());
@@ -57,7 +55,7 @@ void LoadRes(World* world, std::string obj_path, std::string nrm_path ) {
 
 	world->lights = std::make_unique<std::vector<DirLightDesc>>(1);
 	for (size_t i = 0; i < world->lights.get()->size(); i++) {
-		world->lights->at(i).dir = glm::vec3(1, 1, 0.4);
+		world->lights->at(i).dir = glm::vec3(0.27, -0.66, 0.60);
 		world->lights->at(i).color = glm::vec3(1.0f);
 		world->lights->at(i).shadow_w = kWindowWidth*4;
 		world->lights->at(i).shadow_h = kWindowHeight*4;
@@ -65,7 +63,6 @@ void LoadRes(World* world, std::string obj_path, std::string nrm_path ) {
 
 	// prepare the light's geometry
 	PrepGLLights(world->lights.get());
-	//ReadObjFile(std::string(kAssetDir_) + "/1/agi/quad.obj", &world->lights.get()->at(0).mesh);
 	world->lights.get()->at(0).mesh.type = MeshType::Tri;
 	PrepGLDataNTgt(&world->lights.get()->at(0).mesh);
 

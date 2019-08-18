@@ -38,13 +38,12 @@ int main(int argc, char** argv){
 
 
 void parseArgs(int argc, char** argv) {
-	if (argc != 4) {
-		std::cout << "wrong args, please check it." << std::endl;
-		exit(0);
-	}
+
+	kShaderDir_ = "../src/shaders";
 	kObjPath = std::string(argv[1]);
 	kNrmPath = std::string(argv[2]);
-	kShaderDir_ = argv[3];
+	if(argc>3)
+		kShaderDir_ = argv[3];
 }
 
 
@@ -74,7 +73,7 @@ void Rotate(std::vector<T> *ts) {
 
 void GameLoop(World &world, GLFWWindowDesc &window) {
 
-	glClearColor(1.f, 1.f, 1.f, 1.f);
+	glClearColor(0.164f, 0.164f, 0.164f, 1.f);
 	glEnable(GL_DEPTH_TEST);
 	unsigned frame_cnt = 0;
 
@@ -99,26 +98,18 @@ void GameLoop(World &world, GLFWWindowDesc &window) {
 	// render irridance map 
 	// world.renderer->renderLgtIrrid(*world.meshes.get(), *world.quad_irrid.get());
 	while (!window.ShouldClose()) {
-		//glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-		//glClear(GL_COLOR_BUFFER_BIT);
-		glClearColor(1.f, 1.f, 1.f, 1.f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		Rotate(world.meshes.get());
+
+		//Rotate(world.meshes.get());
 
 #if 0
 		auto milli = TimeMeasure([&world]() {world.gloomy->Render(*world.meshes.get()); }, 500);
 		printf("render profile %.2f ms per frame\n", milli);
 		break;
 #endif
-		//world.renderer->render(*world.meshes.get(), *world.quad.get(), 1);
-		//world.renderer->render(*world.meshes.get());
-		//world.renderer->renderBSSRDF(*world.meshes.get(), *world.quad_irrid.get(), *world.quad.get());
-		//world.renderer->renderBSSRDF(*world.meshes.get(), *world.quad_irrid.get(), *world.quad.get(), *world.fbos.get());
-		//std::vector<float> sh_cof(27, 0.f);
-		//world.renderer->render_sh(*world.meshes.get(), *world.quad_irrid.get(), *world.fbos.get(), sh_cof);
+
 		world.renderer->render_hm(*world.meshes.get());
-		//world.renderer->render_lattice(*world.meshes.get());
+
 		
 		
 		ImGui_ImplOpenGL3_NewFrame();
@@ -221,3 +212,5 @@ void HandleInput(GLFWWindowDesc *window, World *world) {
 		world->view->Zoom(yoffset);
 	});
 }
+
+

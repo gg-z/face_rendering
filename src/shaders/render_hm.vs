@@ -18,11 +18,12 @@ uniform mat4 model;
 void main()
 {
     vs_out.tex_cord = tex_cord;
-    vs_out.normal = vec3(normalize(model*vec4(normal,0.0)));
-    vs_out.tgt = vec3(normalize(model*vec4(tgt,0.0)));
-    vs_out.pos = vec3(normalize(model*vec4(pos,0.0)));
+    vs_out.pos = vec3(model*vec4(pos,1.0));
+    vs_out.tgt = normalize(vec3(model * vec4(tgt, 0.0)));
 
-
+	mat3 normalMatrix = transpose(inverse(mat3(model)));
+	vs_out.normal = normalize(normalMatrix*normal);
+    
     gl_Position = projection * view * model * vec4(pos, 1.0);
 
 }

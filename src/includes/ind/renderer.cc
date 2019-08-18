@@ -69,13 +69,14 @@ void Renderer::render_hm(const std::vector<MeshDesc> &meshes) {
 	// render scene
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glViewport(0, 0, view_->Width(), view_->Height());
-	glClearColor(1.f, 1.f, 1.f, 1.f);
+	glClearColor(0.164f, 0.164f, 0.164f, 1.f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glUseProgram(shad_hm_.Get());
 	for (auto &mesh : meshes) {
 		AssignUniform(shad_hm_.Get(), "projection", view_->Proj());
-		AssignUniform(shad_hm_.Get(), "view", view_->View());
-		AssignUniform(shad_hm_.Get(), "model", mesh.Model);
+		AssignUniform(shad_hm_.Get(), "cam_pos", view_->Pos());
+		AssignUniform(shad_hm_.Get(), "view", mesh.Model);
+		AssignUniform(shad_hm_.Get(), "model", view_->View());
 		AssignUniform(shad_hm_.Get(), "lht_pos", lights_->at(0).pos);
 		AssignUniform(shad_hm_.Get(), "albedo", albedo);
 		AssignUniform(shad_hm_.Get(), "lht_color", glm::make_vec3(lht_color));

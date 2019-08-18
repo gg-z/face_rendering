@@ -45,7 +45,8 @@ void GenNormal(tinyobj::attrib_t &shape, tinyobj::mesh_t &mesh, float angle) {
 		v[2] = shape.vertices[indexZ + 2] -
 			shape.vertices[indexX + 2];
 
-		n = glm::cross(u, v); n = glm::normalize(n); count[int(indexX / 3)] += 1;
+		n = glm::cross(u, v); n = glm::normalize(n); 
+		count[int(indexX / 3)] += 1; count[int(indexY / 3)] += 1; count[int(indexZ / 3)] += 1;
 		shape.normals[indexX] += n.x; shape.normals[indexX + 1] += n.y; shape.normals[indexX + 2] += n.z;
 		shape.normals[indexY] += n.x; shape.normals[indexY + 1] += n.y; shape.normals[indexY + 2] += n.z;
 		shape.normals[indexZ] += n.x; shape.normals[indexZ + 1] += n.y; shape.normals[indexZ + 2] += n.z;

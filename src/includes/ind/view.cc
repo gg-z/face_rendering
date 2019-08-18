@@ -20,8 +20,8 @@ IndView::IndView(unsigned width, unsigned height, float FoVy, Bounds scene_box)
 
 void IndView::Zoom(float dist) {
 	if (near_ + dist <= 0.f) return;
-	near_ += dist;
-	far_ += dist;
+	near_ += dist * 5;
+	far_ += dist * 5;
 }
 
 glm::vec3 IndView::Pos() const {
