@@ -1,4 +1,8 @@
-This project is the result visualizer(facial render) of the paper: Photo-Realistic Facial Details Synthesis from Single Image(ICCV 2019 Oral). Paper could be downloaded [here](https://arxiv.org/abs/1903.10873).
+This project is the result visualizer(facial render) of the paper: 
+
+**Photo-Realistic Facial Details Synthesis from Single Image(ICCV 2019 Oral)**
+
+Paper could be downloaded [here](https://arxiv.org/abs/1903.10873).
 
 ## Run executable
 ```
