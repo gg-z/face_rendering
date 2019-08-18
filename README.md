@@ -1,15 +1,17 @@
-This project is the face render of Photo-Realistic Facial Details Synthesis from Single Image(ICCV 2019 Oral)
-### Dependency library
+This project is the result visualizer(facial render) of the paper: Photo-Realistic Facial Details Synthesis from Single Image(ICCV 2019 Oral). Paper could be downloaded [here](https://arxiv.org/abs/1903.10873).
 
 ## Run executable
-```cpp
+```
 ./exe/hmrenderer.exe  /root/to/obj /root/to/norm /root/to/shader
+```
 
-example: ./
+For example:
+```
+./exe/hmrenderer.exe ./assets/face.obj ./assets/nrm.png ./src/shaders
 ```
 
 ## build 
-If you want to build the source code, you can follow the following introduce. All dependents and libs are included.
+If you want to build the source code, you can follow the following introduction. All dependents and libs are included.
 
 ### Project structure
 ```
@@ -35,14 +37,13 @@ If you want to build the source code, you can follow the following introduce. Al
 ├──  .gitignore                     
 ```
 
-### Cmake build Visual Studio 2017 Project
+### Cmake build this project
 ```cpp
 cd to the root of this project
 mkdir build
 cd build
 cmake -A X64 -D CMAKE_PREFIX_PATH=../thirds ../src
 ```
-
 
 
 ### Some screenshots 
